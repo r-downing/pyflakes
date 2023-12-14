@@ -898,6 +898,8 @@ class Checker:
                             messg = messages.ImportShadowedByLoopVar
                         elif used:
                             continue
+                        elif value.name == '_':
+                            continue
                         else:
                             messg = messages.RedefinedWhileUnused
                         self.report(messg, node, value.name, value.source)
